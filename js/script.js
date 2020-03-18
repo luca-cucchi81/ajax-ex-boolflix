@@ -25,7 +25,15 @@ function getData(ricerca, api_key, url) {
             language: 'it-IT'
         },
         success: function (data) {
-            console.log(data);
+            var risultati = data.results;
+            for (var i = 0; i < risultati.length; i++) {
+                for (var key in risultati[i]) {
+                    console.log(risultati[i].title);
+                    console.log(risultati[i].original_title);
+                    console.log(risultati[i].original_language);
+                    console.log(risultati[i].vote_average);
+                }
+            }
         },
         error: function (error) {
             alert('ATTENZIONE ERRORE!!')
