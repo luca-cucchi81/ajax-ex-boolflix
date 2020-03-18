@@ -13,10 +13,10 @@ function search() {
     var urlMovie = 'https://api.themoviedb.org/3/search/movie';
     var typeMovie = 'film';
 
-    getData(query, api_key, urlMovie, typeMovie)
+    getData(query, api_key, urlMovie)
 }
 
-function getData(ricerca, api_key, url, type) {
+function getData(ricerca, api_key, url) {
     $.ajax({
         url: url,
         method: 'GET',
