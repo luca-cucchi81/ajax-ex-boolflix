@@ -11,7 +11,6 @@ function search() {
     var query = $('#query').val();
     var api_key = 'b493320b6020648e92f5a77b43f9e0f7';
     var urlMovie = 'https://api.themoviedb.org/3/search/movie';
-    var typeMovie = 'film';
 
     getData(query, api_key, urlMovie)
 }
