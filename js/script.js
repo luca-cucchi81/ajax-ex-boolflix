@@ -77,7 +77,7 @@ function printStar(num) {
 function printFlag (string) {
   var aviableLang = ['en','it','es','fr','de','ru'];
   if (aviableLang.includes(string)) {
-    string = '<img class="lang" src="img/flag/' + string + '.svg" alt="en">';
+    string = '<img class="lang" src="img/flags/' + string + '.svg" alt="en">';
   }
   return string;
 };
