@@ -11,7 +11,7 @@ $('#query').keyup(function (event) {
   if(event.which == 13) {
     search();
   }
-})
+});
 
 function search() {
     var query = $('#query').val();
@@ -23,12 +23,13 @@ function search() {
 
     getData(query, api_key, urlMovie);
 
-}
+};
 
+// funzione reset
 function resetSearch() {
     $('.films').html('');
     $('#query').val('');
-}
+};
 
 function getData(ricerca, api_key, url) {
     $.ajax({
@@ -56,8 +57,9 @@ function getData(ricerca, api_key, url) {
             alert('ATTENZIONE!! Scrivi il titolo che cerchi!')
         }
     });
-}
+};
 
+// funzione crea stella voto
 function printStar(num) {
     var num = Math.ceil(num / 2);
     var star= '';
@@ -69,8 +71,16 @@ function printStar(num) {
         }
     }
     return star
-}
+};
 
+// funzione stampa bandiera lingua
+function printFlag (string) {
+  var aviableLang = ['en','it','es','fr','de','ru'];
+  if (aviableLang.includes(string)) {
+    string = '<img class="lang" src="img/flag/' + string + '.svg" alt="en">';
+  }
+  return string;
+};
 
 
 
