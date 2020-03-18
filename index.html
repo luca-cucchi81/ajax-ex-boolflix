@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Kanit:400,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
         <link rel="stylesheet" href="css/style.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js" charset="utf-8"></script>
@@ -10,10 +11,16 @@
     </head>
     <body>
         <nav>
+            <div class="nav-left">
+            <i class="fas fa-bars"></i>
             <h1>BOOLFLIX</h1>
+            </div>
+
             <div class="search-bar">
-              <button type="button" name="button">CERCA</button>
               <input id="query" placeholder="Cerca un film, serie tv...">
+              <i id="button" class="fas fa-search"></i>
+              <i class="fas fa-bell"></i>
+              <img src="img/me.jpg" alt="">
             </div>
         </nav>
 

@@ -3,7 +3,8 @@
 
 $(document).ready(function () {
 
-$('button').click(function () {
+
+$('#button').click(function () {
     search();
 });
 
@@ -32,6 +33,7 @@ function getData(ricerca, api_key, url) {
         },
         success: function (data) {
             var risultati = data.results;
+            console.log(data.results);
             for (var i = 0; i < risultati.length; i++) {
                 $(this).each(function () {
                     console.log(risultati[i].title);
