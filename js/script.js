@@ -7,6 +7,11 @@ $(document).ready(function () {
 $('#button').click(function () {
     search();
 });
+$('#query').keyup(function (event) {
+  if(event.which == 13) {
+    search();
+  }
+})
 
 function search() {
     var query = $('#query').val();
@@ -14,11 +19,14 @@ function search() {
 
     var api_key = 'b493320b6020648e92f5a77b43f9e0f7';
     var urlMovie = 'https://api.themoviedb.org/3/search/movie';
+    var urlSeries = 'https://api.themoviedb.org/3/search/tv';
 
-    getData(query, api_key, urlMovie)
+    getData(query, api_key, urlMovie);
+
 }
 
 function resetSearch() {
+    $('.films').html('');
     $('#query').val('');
 }
 
@@ -45,7 +53,7 @@ function getData(ricerca, api_key, url) {
             }
         },
         error: function (error) {
-            alert('ATTENZIONE ERRORE!!')
+            alert('ATTENZIONE!! Scrivi il titolo che cerchi!')
         }
     });
 }

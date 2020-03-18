@@ -12,8 +12,9 @@
   }
 
   body{
-    background-color: #221f1f;
+    width: 100vw;
     min-height: 100vh;
+    background-color: #221f1f;
   }
 
   nav{
@@ -68,3 +69,10 @@
     transform: scale(1.5);
     color: grey;
   }
+
+  .search-bar i:hover{
+    color: #e50914;
+    cursor: pointer;
+  }
+
+  
