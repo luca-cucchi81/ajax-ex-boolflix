@@ -46,7 +46,6 @@ function getData(ricerca, api_key, url, type, div) {
             language: 'it-IT'
         },
         success: function (data) {
-            var results = data.results;
             if(data.total_results > 0) {
               var results = data.results;
               printResult(type, results);
@@ -116,10 +115,10 @@ function printStar (num) {
 
 // funzione stampa bandiera lingua
 function printFlag (string) {
-  var availableLang = ['en','it','es','fr','de','ru'];
+  var availableLang = ['en','it','es','fr','de','ru','ja', 'tr','zh', 'pt', 'cs'];
   if (availableLang.includes(string)) {
     string = 'img/' + string + '.svg';
-  }
+}
   return string;
 };
 

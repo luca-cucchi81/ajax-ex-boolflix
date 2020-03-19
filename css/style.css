@@ -122,6 +122,10 @@
       opacity: 1;
   }
 
+  .overlay dt{
+      color: #e50914
+  }
+
 .fas.fa-star{
     color: yellow;
 }
