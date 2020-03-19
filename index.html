@@ -25,6 +25,27 @@
         </nav>
 
         <div class="films"></div>
+        <div class="serie"></div>
+
+        <script id="film-template" type="text/x-handlebars-template">
+            <div class="single-film">
+                <div class="overlay">
+                    <dl>
+                        <dt>Titolo:</dt>
+                        <dd>{{title}}</dd>
+                        <dt>Titolo Originale:</dt>
+                        <dd>{{originalTitle}}</dd>
+                        <dt>Lingua:</dt>
+                        <dd><img src="{{original_language}}"></dd>
+                        <dt>Voto:</dt>
+                        <dd>{{{vote_average}}}</dd>
+                        <dt>Trama:</dt>
+                        <dd>{{overview}}</dd>
+                    </dl>
+                </div>
+                <img src="{{poster}}" alt="">
+            </div>
+        </script>
 
 
 
