@@ -24,8 +24,9 @@
             </div>
         </nav>
 
-        <div class="films"></div>
-        <div class="serie"></div>
+        <div class="films">
+        </div>
+
 
         <script id="film-template" type="text/x-handlebars-template">
             <div class="single-film">
@@ -35,8 +36,10 @@
                         <dd>{{title}}</dd>
                         <dt>Titolo Originale:</dt>
                         <dd>{{originalTitle}}</dd>
+                        <span>
                         <dt>Lingua:</dt>
                         <dd><img src="{{original_language}}"></dd>
+                        </span>
                         <dt>Voto:</dt>
                         <dd>{{{vote_average}}}</dd>
                         <dt>Trama:</dt>

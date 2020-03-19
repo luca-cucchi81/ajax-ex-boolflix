@@ -116,6 +116,8 @@ function printFlag (string) {
   var availableLang = ['en','it','es','fr','de','ru','ja', 'tr','zh', 'pt', 'cs'];
   if (availableLang.includes(string)) {
     string = 'img/' + string + '.svg';
+} else if (string == 'xx'){
+    string = 'img/nolang.jpg';
 }
   return string;
 };

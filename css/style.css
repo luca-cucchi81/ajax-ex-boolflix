@@ -82,12 +82,11 @@
     cursor: pointer;
   }
 
-  .films,
-  .serie{
-      width: 100%;
-      padding: 20px 10px;
+  .films{
+      width: 90%;
+      margin: 20px auto;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       flex-wrap: wrap;
   }
 
@@ -106,16 +105,22 @@
       right: 0;
       bottom: 0;
       left: 0;
-
+      width: 342px;
+      height: 513px;
       background: black;
       opacity: 0;
       color: #ffffff;
       transition: 0.8s ease;
   }
 
+  .overlay span{
+      display: flex;
+  }
+
   .overlay img{
       width: 30px;
       height: 20px;
+      margin-left: 10px;
   }
 
   .overlay:hover{
