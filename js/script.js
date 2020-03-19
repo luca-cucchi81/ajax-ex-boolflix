@@ -69,11 +69,9 @@ function printResult (type, results) {
         if (type == 'film') {
             title = thisResult.title;
             originalTitle = thisResult.original_title;
-            var div = $('.films');
         }else if (type == 'tvshow')
             title = thisResult.name;
             originalTitle = thisResult.original_name;
-            var div = $('.serie');
 
 
         var poster;
@@ -95,7 +93,7 @@ function printResult (type, results) {
             poster: poster
         };
         var html = template(context);
-        div.append(html);
+        $('.films').append(html);
     }
 };
 
