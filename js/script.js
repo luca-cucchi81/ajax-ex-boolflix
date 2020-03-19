@@ -79,7 +79,7 @@ function printResult (type, results) {
         var urlImg = 'https://image.tmdb.org/t/p/w342'
 
         if (posterImg == null) {
-            poster = 'img/no_poster.jpg'
+            poster = 'img/noImage.png'
         } else {
             poster = urlImg + posterImg
         }
