@@ -2,7 +2,15 @@
 //b493320b6020648e92f5a77b43f9e0f7
 
 $(document).ready(function () {
-
+$('.slide').hide();
+$('.nav-left i').click(function () {
+    $(this).css('color', '#fff');
+    $('.slide').toggle();
+    $('.slide').mouseleave(function () {
+        $(this).hide();
+        $('.nav-left i').css('color', 'grey');
+    });
+});
 
 $('#button').click(function () {
     search();
