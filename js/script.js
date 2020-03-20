@@ -4,12 +4,7 @@
 $(document).ready(function () {
 $('.slide').hide();
 $('.nav-left i').click(function () {
-    $(this).css('color', '#fff');
     $('.slide').toggle();
-    $('.slide').mouseleave(function () {
-        $(this).hide();
-        $('.nav-left i').css('color', 'grey');
-    });
 });
 
 $('#button').click(function () {

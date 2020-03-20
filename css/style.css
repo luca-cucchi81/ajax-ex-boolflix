@@ -45,6 +45,9 @@
     transform: scale(1.5);
     color: grey;
   }
+  .nav-left i:hover{
+      color: #ffffff;
+  }
 
   .nav-left h1{
     padding-left: 25px;
@@ -108,6 +111,13 @@
   .slide h1{
       padding-top: 20px;
       color: #ffffff;
+      margin-bottom: 20px;
+  }
+
+  .slide dd{
+      line-height: 2em;
+      font-size: 20px;
+      color: grey;
   }
 
   .films{
