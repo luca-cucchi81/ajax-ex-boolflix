@@ -36,6 +36,7 @@ function search() {
 function resetSearch() {
     $('.films').empty();
     $('#query').val('');
+    $('.slide').hide();
 };
 
 function getData(ricerca, api_key, url, type) {
