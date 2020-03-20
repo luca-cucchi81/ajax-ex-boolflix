@@ -83,7 +83,7 @@
   }
 
   .search-bar i:hover{
-    color: #e50914;
+    color: #ffffff;
     cursor: pointer;
   }
 
@@ -110,7 +110,8 @@
 
   .slide h1{
       padding-top: 20px;
-      color: #ffffff;
+      text-transform: uppercase;
+      color: #e50914;
       margin-bottom: 20px;
   }
 
