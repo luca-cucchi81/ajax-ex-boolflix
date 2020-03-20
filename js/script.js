@@ -8,7 +8,7 @@ $('#button').click(function () {
     search();
 });
 $('#query').keyup(function (event) {
-  if(event.which == 13) {
+  if(event.keyCode == 13) {
     search();
   }
 });
@@ -24,19 +24,18 @@ function search() {
     var typeMovie = 'film';
     var typeSeries = 'tvshow';
 
-    getData(query, api_key, urlMovie, typeMovie, '.films');
-    getData(query, api_key, urlSeries, typeSeries, '.serie');
+    getData(query, api_key, urlMovie, typeMovie);
+    getData(query, api_key, urlSeries, typeSeries);
 
 };
 
 // funzione reset
 function resetSearch() {
-    $('.films').html('');
-    $('.serie').html('');
+    $('.films').empty();
     $('#query').val('');
 };
 
-function getData(ricerca, api_key, url, type, div) {
+function getData(ricerca, api_key, url, type) {
     $.ajax({
         url: url,
         method: 'GET',
