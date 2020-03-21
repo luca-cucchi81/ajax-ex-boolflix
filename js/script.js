@@ -2,20 +2,24 @@
 //b493320b6020648e92f5a77b43f9e0f7
 
 $(document).ready(function () {
-$('.slide').hide();
+
+$('.slide').hide();    //attivazione sezione "utente"
 $('.nav-left i').click(function () {
     $('.slide').toggle();
 });
 
-$('#button').click(function () {
+$('#button').click(function () {  //al click avvio funzione ricerca film/serie
     search();
 });
-$('#query').keyup(function (event) {
+$('#query').keyup(function (event) {  //alla pressione del tasto Enter avvio funzione ricerca film/serie
   if(event.keyCode == 13) {
     search();
   }
 });
 
+// === FUNZIONI === //
+
+// funzione ricerca film/serie
 function search() {
     var query = $('#query').val();
     resetSearch();
@@ -27,18 +31,19 @@ function search() {
     var typeMovie = 'film';
     var typeSeries = 'tvshow';
 
-    getData(query, api_key, urlMovie, typeMovie);
-    getData(query, api_key, urlSeries, typeSeries);
+    getData(query, api_key, urlMovie, typeMovie);      // prendo i dati dalla funzione getData (se film)
+    getData(query, api_key, urlSeries, typeSeries);   // prendo i dati dalla funzione getData (se serie tv)
 
 };
 
-// funzione reset
+// funzione reset su nuova ricerca film/serie
 function resetSearch() {
     $('.films').empty();
     $('#query').val('');
     $('.slide').hide();
 };
 
+// funzione per prendere i dati necessari dall'API
 function getData(ricerca, api_key, url, type) {
     $.ajax({
         url: url,
@@ -49,18 +54,16 @@ function getData(ricerca, api_key, url, type) {
             language: 'it-IT'
         },
         success: function (data) {
-            if(data.total_results > 0) {
-              var results = data.results;
-              printResult(type, results);
-            }
+                var results = data.results;
+                printResult(type, results);
         },
         error: function (error) {
-            alert('ATTENZIONE!! Scrivi il titolo che cerchi!')
+            alert('ATTENZIONE!! Scrivi il titolo che cerchi!');
         }
     });
 };
 
-// funzione stampa risultati
+// funzione stampa risultati (a seconda se film o serie tv)
 function printResult (type, results) {
     var source = $('#film-template').html();
     var template = Handlebars.compile(source);
@@ -69,14 +72,14 @@ function printResult (type, results) {
     var originalTitle;
     for (var i = 0; i < results.length; i++) {
         var thisResult = results[i];
-        if (type == 'film') {
+        if (type == 'film') {  //se è un film prendi le chiavi dall'API dei film
             title = thisResult.title;
             originalTitle = thisResult.original_title;
-        }else if (type == 'tvshow')
+        }else if (type == 'tvshow') // se è una serie tv prendi le chiavi dall'API delle serie tv
             title = thisResult.name;
             originalTitle = thisResult.original_name;
 
-
+        //selezione copertina film o serie tv + check se non presente
         var poster;
         var posterImg = thisResult.poster_path;
         var urlImg = 'https://image.tmdb.org/t/p/w342'
@@ -87,12 +90,21 @@ function printResult (type, results) {
             poster = urlImg + posterImg
         }
 
-        var context = {
+        //selezione trama del film / serie tv e check se non disponibile
+        var overview;
+        var overviewText = thisResult.overview;
+        if (overviewText == "") {
+            overview = 'non disponibile'
+        }else{
+            overview = overviewText;
+        };
+
+        var context = {  //definizione delle chiavi da dare ad handlebars
             title: title,
             originalTitle: originalTitle,
             original_language: printFlag (thisResult.original_language),
             vote_average: printStar(thisResult.vote_average),
-            overview: thisResult.overview,
+            overview: overview,
             poster: poster
         };
         var html = template(context);
