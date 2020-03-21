@@ -154,6 +154,10 @@
       overflow-y: auto;
   }
 
+  .overlay dt{
+      padding-top: 5px;
+  }
+
   .overlay dd:last-child{
       font-size: 14px;
       text-align: justify;
@@ -161,6 +165,11 @@
 
   .overlay span{
       display: flex;
+      align-items: center;
+  }
+  .overlay span dd{
+      padding-top: 5px;
+      padding-left: 5px;
   }
 
   .overlay img{

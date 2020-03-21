@@ -90,19 +90,37 @@ function printResult (type, results) {
             poster = urlImg + posterImg
         }
 
+        // check per titolo Originale
+        var originalTitle = thisResult.original_title;
+        if (originalTitle == null) {
+            originalTitle = 'Non disponibile';
+        }
+
         //selezione trama del film / serie tv e check se non disponibile
         var overview;
         var overviewText = thisResult.overview;
         if (overviewText == "") {
-            overview = 'non disponibile'
+            overview = 'Non disponibile'
         }else{
             overview = overviewText;
         };
+
+        //selezione anno del film / serie tv e check se non disponibile
+        var releaseDate = thisResult.release_date;
+        var date = new Date(releaseDate)
+        var year;
+        if (isNaN(date)) {
+            year = 'Non disponibile'
+        } else{
+            year = date.getFullYear();
+        }
+
 
         var context = {  //definizione delle chiavi da dare ad handlebars
             title: title,
             originalTitle: originalTitle,
             original_language: printFlag (thisResult.original_language),
+            year: year,
             vote_average: printStar(thisResult.vote_average),
             overview: overview,
             poster: poster
@@ -128,13 +146,13 @@ function printStar (num) {
 
 // funzione stampa bandiera lingua
 function printFlag (string) {
-  var availableLang = ['en','it','es','fr','de','ru','ja', 'tr','zh', 'pt', 'cs'];
-  if (availableLang.includes(string)) {
+    var availableLang = ['en','it','es','fr','de','ru','ja', 'tr','zh', 'pt', 'cs'];
+    if (availableLang.includes(string)) {
     string = 'img/' + string + '.svg';
-} else if (string == 'xx'){
+    } else if (string == 'xx'){
     string = 'img/nolang.jpg';
-}
-  return string;
+    }
+    return string;
 };
 
 
