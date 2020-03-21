@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html lang="it" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css?family=Kanit:400,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-        <link rel="stylesheet" href="css/style.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js" charset="utf-8"></script>
-        <title>Boolflix</title>
-    </head>
-    <body>
-        <nav>
-            <div class="nav-left">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Kanit:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js" charset="utf-8"></script>
+    <title>Boolflix</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-left">
             <i class="fas fa-bars"></i>
             <h1>BOOLFLIX</h1>
-            </div>
-
-            <div class="search-bar">
-              <input id="query" placeholder="Cerca un film, serie tv...">
-              <i id="button" class="fas fa-search"></i>
-              <i class="fas fa-bell"></i>
-              <img src="img/me.jpg" alt="">
-            </div>
-        </nav>
-
-        <div class="slide">
-            <img src="img/me.jpg" alt="">
-            <h1>Luca</h1>
-            <dl>
-                <dd><strong>HOME</strong></dd>
-                <dd>Film</dd>
-                <dd>Serie TV</dd>
-                <dd>Aggiunti di recente</dd>
-            </dl>
         </div>
 
-        <div class="films"></div>
+        <div class="search-bar">
+            <input id="query" placeholder="Cerca un film, serie tv...">
+            <i id="button" class="fas fa-search"></i>
+            <i class="fas fa-bell"></i>
+            <img src="img/me.jpg" alt="">
+        </div>
+    </nav>
+
+    <div class="slide">
+        <img src="img/me.jpg" alt="">
+        <h1>Luca</h1>
+        <dl>
+            <dd><strong>HOME</strong></dd>
+            <dd>Film</dd>
+            <dd>Serie TV</dd>
+            <dd>Aggiunti di recente</dd>
+        </dl>
+    </div>
+
+    <div class="films"></div>
 
 
-        <script id="film-template" type="text/x-handlebars-template">
-            <div class="single-film">
+    <script id="film-template" type="text/x-handlebars-template">
+        <div class="single-film">
                 <div class="overlay">
                     <dl>
                         <dt>Titolo:</dt>
@@ -66,7 +68,8 @@
 
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="js/script.js" charset="utf-8"></script>
-    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/script.js" charset="utf-8"></script>
+</body>
+
 </html>
