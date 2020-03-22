@@ -129,7 +129,8 @@ function printResult (type, results) {
             year: year,
             vote_average: printStar(thisResult.vote_average),
             overview: overview,
-            poster: poster
+            poster: poster,
+            id: thisResult.id
         };
         var html = template(context);
         $('.films').append(html);
