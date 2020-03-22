@@ -160,9 +160,9 @@ input {
   padding-top: 5px;
 }
 
-/* .overlay dd:first-child{
+.overlay dd:first-child{
     display: none;
-} */
+}
 
 .overlay dd:last-child {
   font-size: 14px;
