@@ -206,9 +206,25 @@ footer{
 .title-section{
     width: 10%;
     height: 100%;
+    padding: 10px 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-image: linear-gradient(#1b1818, black);
+    color: #ffffff;
+}
+
+.title-section img{
+    width: 250px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.title-section h2{
+    padding-left: 15px;
+    text-transform: uppercase;
+
 }
 
 .cast{
