@@ -26,7 +26,7 @@ nav {
   left: 0;
   height: 70px;
   padding: 0 10px;
-  background-color: black;
+  background-image: linear-gradient(#221f1f, black);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -87,13 +87,14 @@ input {
   cursor: pointer;
 }
 
+/* SLIDE SX */
 .slide {
   width: 15%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: black;
+  background-image: linear-gradient(#1b1818 10%, black 90%);
   position: fixed;
   top: 70px;
   left: 0;
@@ -148,7 +149,7 @@ input {
   width: 342px;
   height: 513px;
   padding: 0 10px;
-  background: black;
+  background-image: linear-gradient(#1b1818, black);
   opacity: 0;
   color: #ffffff;
   transition: 0.8s ease;
@@ -189,4 +190,30 @@ input {
 
 .fas.fa-star {
   color: yellow;
+}
+
+/* FOOTER */
+footer{
+    width: 100%;
+    height: 30%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    z-index: 99;
+}
+
+.title-section{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(#1b1818, black);
+}
+
+.cast{
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    background-image: linear-gradient(#1b1818, black);
 }

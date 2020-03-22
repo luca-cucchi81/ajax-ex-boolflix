@@ -3,9 +3,18 @@
 
 $(document).ready(function () {
 
-$('.slide').hide();    //attivazione sezione "utente"
+//attivazione sezione "utente"
+$('.slide').hide();
 $('.nav-left i').click(function () {
-    $('.slide').toggle();
+    $('.slide').slideToggle(500);
+});
+//attivazione sezione attori
+$('footer').hide();
+$(document).on('click', '.overlay', function () {
+    $('footer').slideToggle(500);
+
+})
+
 });
 
 $('#button').click(function () {  //al click avvio funzione ricerca film/serie
@@ -154,6 +163,3 @@ function printFlag (string) {
     }
     return string;
 };
-
-
-});
