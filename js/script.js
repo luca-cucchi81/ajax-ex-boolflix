@@ -1,21 +1,17 @@
 //api.key
 //b493320b6020648e92f5a77b43f9e0f7
 
-$(document).ready(function () {
-
 //attivazione sezione "utente"
 $('.slide').hide();
 $('.nav-left i').click(function () {
     $('.slide').slideToggle(500);
 });
+
 //attivazione sezione attori
 $('footer').hide();
 $(document).on('click', '.overlay', function () {
-    $('footer').slideToggle(500);
-
+    $('footer').slideToggle(300);
 })
-
-});
 
 $('#button').click(function () {  //al click avvio funzione ricerca film/serie
     search();
@@ -50,6 +46,7 @@ function resetSearch() {
     $('.films').empty();
     $('#query').val('');
     $('.slide').hide();
+    $('footer').hide();
 };
 
 // funzione per prendere i dati necessari dall'API
