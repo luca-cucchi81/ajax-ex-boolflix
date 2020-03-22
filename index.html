@@ -72,12 +72,17 @@
                 <img src="img/oscar.png" alt="">
                 <h2>Il Cast</h2>
             </div>
-            <div class="cast">
 
-            </div>
+            <div class="cast"></div>
+
+            <script id="cast-template" type="text/x-handlebars-template">
+                <div class="actor-card">
+                    <img src="{{profile_path}}" alt="">
+                    <h3>{{name}}</h3>
+                    <p>{{character}}</p>
+                </div>
+            </script>
         </footer>
-
-
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

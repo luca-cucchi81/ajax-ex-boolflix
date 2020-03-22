@@ -11,7 +11,11 @@ $('.nav-left i').click(function () {
 $('footer').hide();
 $(document).on('click', '.overlay', function () {
     $('footer').slideToggle(300);
-})
+
+    var movieId = $(this).find('dl').first('dd').text();
+    var urlCast = 'https://api.themoviedb.org/3/movie/' + movieId + '/credits'
+    getCast(urlCast);
+});
 
 $('#button').click(function () {  //al click avvio funzione ricerca film/serie
     search();
@@ -160,4 +164,37 @@ function printFlag (string) {
     string = 'img/nolang.jpg';
     }
     return string;
+};
+
+function getCast(urlCredits) {
+    $.ajax({
+        url: urlCredits,
+        method: 'GET',
+        data: {
+            api_key: 'b493320b6020648e92f5a77b43f9e0f7',
+        },
+        success: function (data) {
+            var fullCast = data.cast;
+            var cast = fullCast.slice(0, 6);
+            console.log(cast);
+
+        },
+        error: function (error) {
+            alert('errore')
+        }
+    });
+};
+
+function printCast(cast) {
+    var source = $('#cast-template').html();
+    var template = Handlebars.compile(source);
+
+    var context ={
+        profile_path: actor.profile_path,
+        name: actor.name,
+        character: actor.character
+        };
+    var html = template(context);
+    $('.cast').append(html);
+
 };
