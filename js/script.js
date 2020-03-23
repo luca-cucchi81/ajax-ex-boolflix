@@ -206,7 +206,7 @@ function printCast(sliceCast) {
         var actorPhoto = cast.profile_path;
         var actorPhotoUrl = 'https://image.tmdb.org/t/p/w154'
         if (actorPhoto == null) {
-            photo = 'img/noImage.png'
+            photo = 'img/nophoto.jpg'
         }else{
             photo = actorPhotoUrl + actorPhoto;
         }

@@ -243,3 +243,8 @@ footer{
     color: #ffffff;
     background-image: linear-gradient(#1b1818, black);
 }
+
+.actor-card img{
+    width: 154px;
+    height: 231px;
+}
