@@ -97,7 +97,8 @@ input {
   background-image: linear-gradient(#1b1818 10%, black 90%);
   position: fixed;
   top: 70px;
-  left: 0;
+  transition: 1s ease;
+  transform: translateX(-100%);
   z-index: 99;
 }
 

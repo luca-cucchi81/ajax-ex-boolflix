@@ -2,10 +2,13 @@
 //b493320b6020648e92f5a77b43f9e0f7
 
 //attivazione sezione "utente"
-$('.slide').hide();
 $('.nav-left i').click(function () {
-    $('.slide').slideToggle(500);
+    $('.slide').css('transform', 'translateX(0)');
 });
+$('.nav-left i').dblclick(function () {
+    $('.slide').css('transform', 'translateX(-100%)');
+});
+
 
 //attivazione sezione attori
 $('footer').hide();
@@ -52,7 +55,6 @@ function search() {
 function resetSearch() {
     $('.films').empty();
     $('#query').val('');
-    $('.slide').hide();
     $('footer').hide();
 };
 
