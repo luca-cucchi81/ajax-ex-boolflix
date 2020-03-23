@@ -160,9 +160,9 @@ input {
   padding-top: 5px;
 }
 
-.overlay dd:first-child{
+/* .overlay dd:first-child{
     display: none;
-}
+} */
 
 .overlay dd:last-child {
   font-size: 14px;
@@ -235,5 +235,10 @@ footer{
     width: 90%;
     height: 100%;
     margin: 0 auto;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    color: #ffffff;
     background-image: linear-gradient(#1b1818, black);
 }

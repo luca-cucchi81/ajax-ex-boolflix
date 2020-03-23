@@ -15,6 +15,7 @@ $(document).on('click', '.overlay', function () {
     var movieId = $(this).find('dl').first('dd').text();
     var urlCast = 'https://api.themoviedb.org/3/movie/' + movieId + '/credits'
     getCast(urlCast);
+
 });
 
 $('#button').click(function () {  //al click avvio funzione ricerca film/serie
@@ -174,9 +175,11 @@ function getCast(urlCredits) {
             api_key: 'b493320b6020648e92f5a77b43f9e0f7',
         },
         success: function (data) {
-            var fullCast = data.cast;
-            var cast = fullCast.slice(0, 6);
-            console.log(cast);
+            var fullCast = data.cast;    //richiamo l'intero cast del film
+            var sliceCast = fullCast.slice(0, 6);  //prendo solo i primi cinque attori
+        
+            $('.actor-card').remove();
+            printCast(sliceCast)
 
         },
         error: function (error) {
@@ -185,16 +188,21 @@ function getCast(urlCredits) {
     });
 };
 
-function printCast(cast) {
+function printCast(sliceCast) {
     var source = $('#cast-template').html();
     var template = Handlebars.compile(source);
 
+    var cast;
+    for (var i = 0; i < sliceCast.length; i++) {
+        cast = sliceCast[i];
+
     var context ={
-        profile_path: actor.profile_path,
-        name: actor.name,
-        character: actor.character
+        profile_path: cast.profile_path,
+        name: cast.name,
+        character: cast.character
         };
     var html = template(context);
     $('.cast').append(html);
+    }
 
 };
