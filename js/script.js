@@ -177,7 +177,7 @@ function getCast(urlCredits) {
         success: function (data) {
             var fullCast = data.cast;    //richiamo l'intero cast del film
             var sliceCast = fullCast.slice(0, 6);  //prendo solo i primi cinque attori
-        
+
             $('.actor-card').remove();
             printCast(sliceCast)
 
@@ -191,13 +191,23 @@ function getCast(urlCredits) {
 function printCast(sliceCast) {
     var source = $('#cast-template').html();
     var template = Handlebars.compile(source);
+    //
 
     var cast;
     for (var i = 0; i < sliceCast.length; i++) {
         cast = sliceCast[i];
 
+        var photo;
+        var actorPhoto = cast.profile_path;
+        var actorPhotoUrl = 'https://image.tmdb.org/t/p/w154'
+        if (actorPhoto == null) {
+            photo = 'img/noImage.png'
+        }else{
+            photo = actorPhotoUrl + actorPhoto;
+        }
+
     var context ={
-        profile_path: cast.profile_path,
+        photo: photo,
         name: cast.name,
         character: cast.character
         };
