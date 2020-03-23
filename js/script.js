@@ -11,8 +11,10 @@ $('.nav-left i').click(function () {
 $('footer').hide();
 $(document).on('click', '.overlay', function () {
     $('footer').slideToggle(300);
+    $('.actor-card').remove();
 
-    var movieId = $(this).find('dl').first('dd').text();
+    var movieId = $(this).find('dl > dd:first-child').text();
+    console.log(movieId);
     var urlCast = 'https://api.themoviedb.org/3/movie/' + movieId + '/credits'
     getCast(urlCast);
 
@@ -167,6 +169,7 @@ function printFlag (string) {
     return string;
 };
 
+// funzione estrapola cast attori
 function getCast(urlCredits) {
     $.ajax({
         url: urlCredits,
@@ -178,9 +181,7 @@ function getCast(urlCredits) {
             var fullCast = data.cast;    //richiamo l'intero cast del film
             var sliceCast = fullCast.slice(0, 6);  //prendo solo i primi cinque attori
 
-            $('.actor-card').remove();
             printCast(sliceCast)
-
         },
         error: function (error) {
             alert('errore')
@@ -189,6 +190,8 @@ function getCast(urlCredits) {
 };
 
 function printCast(sliceCast) {
+    $('.actor-card').remove();
+
     var source = $('#cast-template').html();
     var template = Handlebars.compile(source);
     //
