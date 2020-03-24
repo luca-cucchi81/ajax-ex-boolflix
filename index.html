@@ -36,15 +36,14 @@
             <dd>Aggiunti di recente</dd>
         </dl>
     </div>
-
+    
     <div class="films"></div>
 
 
     <script id="film-template" type="text/x-handlebars-template">
-        <div class="single-film">
+        <div class="single-film" data-type='{{type}}' data-id='{{id}}'>
                 <div class="overlay">
                     <dl>
-                        <dd>{{id}}</dd>
                         <dt>Titolo:</dt>
                         <dd>{{title}}</dd>
                         <dt>Titolo Originale:</dt>

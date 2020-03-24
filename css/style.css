@@ -157,6 +157,10 @@ input {
   overflow-y: auto;
 }
 
+.overlay:hover{
+    cursor: pointer;
+}
+
 .overlay dt {
   padding-top: 5px;
 }

@@ -15,9 +15,17 @@ $('footer').hide();
 $(document).on('click', '.overlay', function () {
     $('footer').slideToggle(300);
 
-    var movieId = $(this).find('dl > dd:first-child').text();
-    var urlCast = 'https://api.themoviedb.org/3/movie/' + movieId + '/credits';
-    getCast(urlCast);
+    var movieId = $(this).parent().data('id');
+    var tipo = $(this).parent().data('type');
+
+    if (tipo == 'film') {
+        var urlCast = 'https://api.themoviedb.org/3/movie/' + movieId + '/credits';
+        getCast(urlCast);
+    } else if (tipo == 'tv') {
+        var urlSeries = 'https://api.themoviedb.org/3/tv/' + movieId + '/credits';
+        getCast(urlSeries);
+    }
+
 
 });
 
@@ -88,9 +96,11 @@ function printResult (type, results) {
         if (type == 'film') {  //se è un film prendi le chiavi dall'API dei film
             title = thisResult.title;
             originalTitle = thisResult.original_title;
+            type = 'film';
         }else if (type == 'tvshow') {// se è una serie tv prendi le chiavi dall'API delle serie tv
             title = thisResult.name;
             originalTitle = thisResult.original_name;
+            type = 'tv';
         }
 
 
@@ -139,7 +149,8 @@ function printResult (type, results) {
             vote_average: printStar(thisResult.vote_average),
             overview: overview,
             poster: poster,
-            id: thisResult.id
+            id: thisResult.id,
+            type: type
         };
         var html = template(context);
         $('.films').append(html);
