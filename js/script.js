@@ -16,14 +16,8 @@ $(document).on('click', '.overlay', function () {
     $('footer').slideToggle(300);
 
     var movieId = $(this).find('dl > dd:first-child').text();
-    var urlCast = 'https://api.themoviedb.org/3/movie/' + movieId + '/credits'
-    var urlSeriesCast = 'https://api.themoviedb.org/3/tv/' + movieId + '/credits'
-    if ($(this).find('dl > dd:first-child').hasClass('tv')) {    //check per splittare cast se film o serie tv
-        getCast(urlSeriesCast);
-    } else{
-        getCast(urlCast);
-    }
-
+    var urlCast = 'https://api.themoviedb.org/3/movie/' + movieId + '/credits';
+    getCast(urlCast);
 
 });
 
@@ -97,8 +91,7 @@ function printResult (type, results) {
         }else if (type == 'tvshow') {// se è una serie tv prendi le chiavi dall'API delle serie tv
             title = thisResult.name;
             originalTitle = thisResult.original_name;
-            $('.overlay').find('dl > dd:first-child').addClass('tv');  // inserito per cambiare cast della serie tv 
-            }
+        }
 
 
         //selezione copertina film o serie tv + check se non presente
