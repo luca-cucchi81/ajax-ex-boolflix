@@ -3,10 +3,10 @@
 
 //attivazione sezione "utente"
 $('.nav-left i').click(function () {
-    $('.slide').css('transform', 'translateX(0)');
+    $('.slide').css('transform', 'translateX(0)');   //click su icona nav -> slide a sx
 });
 $('.nav-left i').dblclick(function () {
-    $('.slide').css('transform', 'translateX(-100%)');
+    $('.slide').css('transform', 'translateX(-100%)');  //doppio click su incona nav -> slide a dx
 });
 
 
@@ -14,12 +14,16 @@ $('.nav-left i').dblclick(function () {
 $('footer').hide();
 $(document).on('click', '.overlay', function () {
     $('footer').slideToggle(300);
-    $('.actor-card').remove();
 
     var movieId = $(this).find('dl > dd:first-child').text();
-    console.log(movieId);
     var urlCast = 'https://api.themoviedb.org/3/movie/' + movieId + '/credits'
-    getCast(urlCast);
+    var urlSeriesCast = 'https://api.themoviedb.org/3/tv/' + movieId + '/credits'
+    if ($(this).find('dl > dd:first-child').hasClass('tv')) {    //check per splittare cast se film o serie tv
+        getCast(urlSeriesCast);
+    } else{
+        getCast(urlCast);
+    }
+
 
 });
 
@@ -90,9 +94,12 @@ function printResult (type, results) {
         if (type == 'film') {  //se è un film prendi le chiavi dall'API dei film
             title = thisResult.title;
             originalTitle = thisResult.original_title;
-        }else if (type == 'tvshow') // se è una serie tv prendi le chiavi dall'API delle serie tv
+        }else if (type == 'tvshow') {// se è una serie tv prendi le chiavi dall'API delle serie tv
             title = thisResult.name;
             originalTitle = thisResult.original_name;
+            $('.overlay').find('dl > dd:first-child').addClass('tv');  // inserito per cambiare cast della serie tv 
+            }
+
 
         //selezione copertina film o serie tv + check se non presente
         var poster;
@@ -183,10 +190,10 @@ function getCast(urlCredits) {
             var fullCast = data.cast;    //richiamo l'intero cast del film
             var sliceCast = fullCast.slice(0, 6);  //prendo solo i primi cinque attori
 
-            printCast(sliceCast)
+            printCast(sliceCast);
         },
         error: function (error) {
-            alert('errore')
+            alert('errore');
         }
     });
 };
